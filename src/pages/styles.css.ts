@@ -1,41 +1,76 @@
-import { createTheme, style } from "@vanilla-extract/css";
+import { composeStyles, style } from "@vanilla-extract/css";
+import { sprinkless } from "./sprinkless.css";
 
-export const [themeClass, vars] = createTheme({
-  color: {
-    primary: "#764abc",
-    secondary: "white",
-  },
-  font: {
-    menu: "1.5em",
-  },
-});
+export const menu = sprinkless(
+  {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "large",
 
-export const menuStyle = style({
-  backgroundColor: vars.color.primary,
-  fontSize: vars.font.menu,
-  display: "block",
-  width: "100%",
-  color: "white",
-  padding: 20,
-});
+    // Conditional atoms:
+    flexDirection: {
+      mobile: "column",
+      desktop: "row",
+    },
+    fontSize: {
+      desktop: "large",
+      mobile: "medium"
+    },
+    background: {
+      lightMode: "primary",
+    },
 
-export const menuItemsStyle = style({
-  float: "right",
-});
+  })
 
-export const menuItemStyle = style({
-  backgroundColor: vars.color.primary,
-  color: vars.color.secondary,
-  margin: 10,
-  ":hover": {
-    cursor: "pointer",
-    color: "orange",
-  },
-});
 
-export const sectionStyle = style({
-  display: "inline-block",
-  width: "100%",
-  textAlign: "center",
-  marginTop: "20%",
-});
+  export const menuItems = style([
+    sprinkless(
+      {
+        display: {
+          desktop: "flex",
+          mobile: "grid",
+        },
+        gridTemplateColumns: {
+          mobile: "4x",
+        },
+        paddingX: {
+          desktop: "small",
+          mobile: "none",
+        },
+        paddingY: {
+          mobile: "medium",
+        },
+        flexDirection: {
+          mobile: "column",
+          desktop: "row",
+        },
+        
+      }
+
+    ),
+    {
+      listStyle: 'none',
+    }
+  ])
+
+
+export const menuItem = style([
+  sprinkless(
+    {
+      display: "flex",
+      alignItems: "center",
+      paddingX: "medium",
+      color: "white",
+  
+      flexDirection: {
+        mobile: "column",
+        desktop: "row",
+      },
+  }),
+  {
+      ':hover': {
+        cursor: "pointer",
+        color: "orange",
+      }
+  }
+]);
