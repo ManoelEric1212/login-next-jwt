@@ -1,7 +1,7 @@
 
 import { Inter } from 'next/font/google'
 import * as styles from "./styles.css";
-import { sprinkless } from "./sprinkless.css";
+import { sprinkless } from "../styles/sprinkless.css";
 
 
 

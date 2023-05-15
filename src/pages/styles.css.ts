@@ -1,5 +1,5 @@
-import { composeStyles, style } from "@vanilla-extract/css";
-import { sprinkless } from "./sprinkless.css";
+import {  style } from "@vanilla-extract/css";
+import { sprinkless } from "../styles/sprinkless.css"
 
 export const menu = sprinkless(
   {
