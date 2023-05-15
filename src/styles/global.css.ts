@@ -1,4 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
+import {  style } from "@vanilla-extract/css";
 import { vars } from "./vars.css";
 
 globalStyle("body", {
@@ -8,4 +9,5 @@ globalStyle("body", {
   color: vars.color.black,
   padding: 0,
   margin: 0,
+  background: vars.color.grey100,
 });
